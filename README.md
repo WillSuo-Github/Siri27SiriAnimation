@@ -1,38 +1,38 @@
 # Siri27SiriAnimation
 
-用 SwiftUI + Metal 复刻 iOS 27 风格的 Siri 动画，包括两种模式：
+An unofficial recreation of the iOS 27 Siri animation, built with SwiftUI and Metal.
 
-- Wave：彩色 Siri 波形
-- Fluid Dots：流体融合点阵
+The project includes two animation modes:
 
-动画核心不是用 SwiftUI Path 近似重画，而是把网页版本里的 GLSL shader 逻辑移植到 Metal shader 中，由 `MTKView` 实时渲染。
+- **Wave**: a colorful, layered Siri waveform
+- **Fluid Dots**: six animated metaballs that merge, gather, and burst
 
-## Demo
-
-<video src="Media/siri27-siri-animation-demo.mp4" controls width="320"></video>
-
-如果 GitHub 页面没有直接展示视频，可以打开这里查看：[演示视频](Media/siri27-siri-animation-demo.mp4)。
+The effects are not approximated with SwiftUI paths or CPU-rendered shapes. The original GLSL shader logic from the [Siri GLSL demo](https://aaaa-zhen.github.io/siri-glsl/siri-wave.html) was translated to Metal Shading Language and rendered in real time with `MTKView`.
 
 ## Implementation
 
-- `Siri27SiriAnimation/SiriShaders.metal`：从 GLSL 移植的两个 fragment shader。
-- `Siri27SiriAnimation/SiriMetalView.swift`：SwiftUI 中承载 `MTKView`，管理 Metal pipeline、时间和分辨率 uniform。
-- `Siri27SiriAnimation/ContentView.swift`：两个动画模式的 SwiftUI segmented control。
+- `Siri27SiriAnimation/SiriShaders.metal` contains the Metal ports of the two fragment shaders.
+- `Siri27SiriAnimation/SiriMetalView.swift` manages the Metal render pipelines, animation time, and resolution uniforms.
+- `Siri27SiriAnimation/ContentView.swift` provides the SwiftUI interface for switching between animation modes.
 
 ## Requirements
 
-- Xcode 26.5 或更新版本
-- iOS 26.5 Simulator 或更新版本
-- 支持 Metal 的设备或模拟器
+- Xcode 26.5 or later
+- iOS 26.5 Simulator or later
+- A device or simulator with Metal support
 
-## Run
+## Running the Project
 
 ```bash
 open Siri27SiriAnimation.xcodeproj
 ```
 
-选择 `Siri27SiriAnimation` scheme 后直接运行即可。
+Select the `Siri27SiriAnimation` scheme and run the app.
+
+## Disclaimer
+
+This is an independent educational project and is not affiliated with or endorsed by Apple Inc. Siri and iOS are trademarks of Apple Inc.
 
 ## License
 
-MIT
+Released under the MIT License.
