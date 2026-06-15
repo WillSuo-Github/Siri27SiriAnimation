@@ -1,5 +1,11 @@
 # Siri27SiriAnimation
 
+
+https://github.com/user-attachments/assets/e2a01de5-03b2-4bd2-9432-75418db6f9ea
+
+
+
+
 An unofficial recreation of the iOS 27 Siri animation, built with SwiftUI and Metal.
 
 The project includes two animation modes:
